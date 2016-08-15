@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tvCharts" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrS-jC-0pN" userLabel="View1" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="20" width="930" height="510"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yio-1e-Lo7" userLabel="View2" customClass="HorizontalBarChartView" customModule="Charts">
+                                <rect key="frame" x="970" y="20" width="930" height="510"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lsn-bE-AzZ" userLabel="View3" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="550" width="930" height="510"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0U-kF-1QS" userLabel="View4" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="970" y="550" width="930" height="510"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lsn-bE-AzZ" secondAttribute="bottom" constant="20" id="Kpu-Br-nRH"/>
+                            <constraint firstItem="E0U-kF-1QS" firstAttribute="top" secondItem="Yio-1e-Lo7" secondAttribute="bottom" constant="20" id="LI4-4U-wGa"/>
+                            <constraint firstItem="Yio-1e-Lo7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="OFW-c5-dOL"/>
+                            <constraint firstItem="E0U-kF-1QS" firstAttribute="leading" secondItem="lsn-bE-AzZ" secondAttribute="trailing" constant="20" id="Ow8-lb-naw"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="lsn-bE-AzZ" secondAttribute="leading" id="Ow9-h3-Exl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yio-1e-Lo7" secondAttribute="trailing" id="Ptl-k1-rKO"/>
+                            <constraint firstItem="Yio-1e-Lo7" firstAttribute="width" secondItem="xrS-jC-0pN" secondAttribute="width" id="S7h-OD-NgB"/>
+                            <constraint firstItem="lsn-bE-AzZ" firstAttribute="height" secondItem="xrS-jC-0pN" secondAttribute="height" id="Tlu-2g-5py"/>
+                            <constraint firstItem="xrS-jC-0pN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="UYw-rY-cZL"/>
+                            <constraint firstItem="E0U-kF-1QS" firstAttribute="width" secondItem="lsn-bE-AzZ" secondAttribute="width" id="dRx-tY-ful"/>
+                            <constraint firstItem="lsn-bE-AzZ" firstAttribute="top" secondItem="xrS-jC-0pN" secondAttribute="bottom" constant="20" id="fmK-FG-sfe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="E0U-kF-1QS" secondAttribute="trailing" id="iyL-gW-EDs"/>
+                            <constraint firstItem="Yio-1e-Lo7" firstAttribute="leading" secondItem="xrS-jC-0pN" secondAttribute="trailing" constant="20" id="mJ1-IF-HyX"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="xrS-jC-0pN" secondAttribute="leading" id="pIn-Nt-j90"/>
+                            <constraint firstItem="E0U-kF-1QS" firstAttribute="height" secondItem="Yio-1e-Lo7" secondAttribute="height" id="pSR-SI-mQ6"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="E0U-kF-1QS" secondAttribute="bottom" constant="20" id="rZU-n7-Mpa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="horizontalBarChart" destination="Yio-1e-Lo7" id="OXi-DT-aKr"/>
+                        <outlet property="lineChart" destination="E0U-kF-1QS" id="FZi-FE-feF"/>
+                        <outlet property="pieChart" destination="lsn-bE-AzZ" id="y7H-fW-UL8"/>
+                        <outlet property="verticalBarChart" destination="xrS-jC-0pN" id="xZE-xa-MXm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

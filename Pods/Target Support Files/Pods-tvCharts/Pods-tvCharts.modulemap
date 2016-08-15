@@ -1,0 +1,6 @@
+framework module Pods_tvCharts {
+  umbrella header "Pods-tvCharts-umbrella.h"
+
+  export *
+  module * { export * }
+}
