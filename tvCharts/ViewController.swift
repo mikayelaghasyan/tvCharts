@@ -78,22 +78,15 @@ class ViewController: UIViewController {
     }
 
     private func updateChart<CV: ChartViewBase, CD: ChartData, CDS: ChartDataSet, CDE: ChartDataEntry>(chart: CV, chartDataType: CD.Type, chartDataSetType: CDS.Type, chartDataEntryType: CDE.Type, animated: Bool = true) {
-        var data = chart.data as? CD
-        if (data == nil) {
-            data = chartDataOfType(chartDataType, xVals: self.data.map { $0.name })
-            chart.data = data
-
-            var entries = [CDE]()
-            for (index, item) in self.data.enumerate() {
-                entries.append(self.chartDataEntryOfType(chartDataEntryType, index: index, value: Double(item.value)))
-            }
-            data!.dataSets = [chartDataSetOfType(chartDataSetType, yVals: entries, label: "Quarters")]
-        } else {
-            for (index, item) in self.data.enumerate() {
-                data!.dataSets.first?.entryForIndex(index)?.value = Double(item.value)
-            }
+        var entries = [CDE]()
+        for (index, item) in self.data.enumerate() {
+            entries.append(self.chartDataEntryOfType(chartDataEntryType, index: index, value: Double(item.value)))
         }
 
+        let chartData = chartDataOfType(chartDataType, xVals: self.data.map { $0.name })
+        chartData!.dataSets = [chartDataSetOfType(chartDataSetType, yVals: entries, label: "Quarters")]
+        chart.data = chartData
+        
         if (animated) {
             chart.animate(xAxisDuration: 0.5, yAxisDuration: 0.5)
         } else {
